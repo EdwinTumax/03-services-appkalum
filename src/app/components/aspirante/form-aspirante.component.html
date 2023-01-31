@@ -1,0 +1,75 @@
+<div class="card bg-dark text-white mt-5">
+    <div class="card-header">
+        Solicitud de expediente
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="nombres" class="col-form-label col-sm-2">Nombres</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="nombres" placeholder="Nombres">
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <label for="apellidos" class="col-form-label col-sm-2">Apellidos</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <label for="direccion" class="col-form-label col-sm-2">Dirección</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="direccion" placeholder="Dirección">
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <label for="telefono" class="col-form-label col-sm-2">Teléfono</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="telefono" placeholder="Teléfono">
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label for="email" class="col-form-label col-sm-2">Email</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="email" placeholder="Email" [(ngModel)]= "usuario.email" [ngModelOptions]="{standalone: true}">
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label for="carreraTecnica" class="col-form-label col-sm-2">Carrera Técnica</label>
+                <div class="col-sm-6">
+                    <select class="form-control" name="carreraTecnica" style="width:500px;">
+                        <option [ngValue]="undefined">--- selecionar una carrera técnica ---</option>
+                        <option *ngFor="let carreraTecnica of carrerasTecnicas" [ngValue]="carreraTecnica">{{carreraTecnica.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label for="jornada" class="col-form-label col-sm-2">Jornada</label>
+                <div class="col-sm-6">
+                    <select class="form-control" name="jornada" style="width:500px;">
+                        <option [ngValue]="undefined">--- selecionar una jornada ---</option>
+                        <option *ngFor="let jornada of jornadas" [ngValue]="jornada">{{jornada.descripcion}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label for="examen" class="col-form-label col-sm-2">Examen</label>
+                <div class="col-sm-6">
+                    <select class="form-control" name="examen" style="width:500px;">
+                        <option [ngValue]="undefined">--- selecionar una fecha de examen ---</option>
+                        <option *ngFor="let examenAdmision of examenesAdmision" [ngValue]="examenAdmision">{{examenAdmision.fechaExamen | date:'dd MMMM YYYY HH:mm'}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <div class="col-sm-6">
+                    <input type="submit" class="btn btn-primary" value="Enviar">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="card border-primary mt-3">
+    <div class="card-header">
+        Carreras técnicas
+    </div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado disponible</h5>
+        <div *ngIf="authService.hasRole('ROLE_ADMIN')" class="my-2 text-left">
+            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/carreraTecnica/form']">
+                Crear Carrera
+            </button>
+        </div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Carrera técnica</th>
+                    <th *ngIf="authService.hasRole('ROLE_USER')">Asignar</th>
+                    <th *ngIf="authService.hasRole('ROLE_ADMIN')">Eliminar</th>
+                    <th *ngIf="authService.hasRole('ROLE_ADMIN')">Editar</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of carrerasTecnicas">
+                <tr>
+                    <td>{{item.nombre}}</td>    
+                    <td *ngIf="authService.hasRole('ROLE_USER')"><button type="button" name="asignar" class="btn btn-secondary btn-sm" (click) = "asignar(item)">Asignar</button></td>
+                    <td *ngIf="authService.hasRole('ROLE_ADMIN')"><button type="button" name="eliminar" class="btn btn-danger btn-sm" (click)="eliminar(item)">Eliminar</button></td>
+                    <td *ngIf="authService.hasRole('ROLE_ADMIN')"><button type="button" name="editar" class="btn btn-success btn-sm" [routerLink] = "['/carreraTecnica/form',item.carreraId]">Editar</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <app-paginador *ngIf="paginador" [paginador] = "paginador" [urlEndPoint] = "urlEndPoint"></app-paginador>
+    </div>
+</div>

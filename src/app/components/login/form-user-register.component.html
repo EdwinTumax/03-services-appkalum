@@ -1,0 +1,30 @@
+<div class="card bg-dark text-white mt-5">
+    <div class="card-header">Registro de usuario</div>
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="username" class="col-form-label col-sm-2">Username</label>
+                <div class="col-sm-6">
+                    <input type="text" [(ngModel)]="usuario.username" class="form-control" name="username" placeholder="Username">
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <label for="email" class="col-form-label col-sm-2">Email</label>
+                <div class="col-sm-6">
+                    <input type="text" [(ngModel)]="usuario.email" class="form-control" name="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <label for="password" class="col-form-label col-sm-2">Password</label>
+                <div class="col-sm-6">
+                    <input type="text" [(ngModel)]="usuario.password" class="form-control" name="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group row mt-2">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" role="button" (click)="create()">Crear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
